@@ -18,7 +18,8 @@ Pick one or the other to use.
 
 This project is intentionally not utilizing 3rd party services or create-react-app to give you the opportunity to showcase your talents wherever they are, be it the front end or the back end.
 
-**Node** version **12** is the safest NodeJS release to use.  You can try version 14, but there can be node-gyp/python issues on OSX.
+**Node** version **12** is the safest NodeJS release to use.  You can try version 14, but there can be node-gyp/python issues on OSX.<br/>
+However, **Node** version **11.15.0** is the version required for yarn install to compile to localhost. Review [nvm docs](https://github.com/nvm-sh/nvm/blob/master/README.md) for more detail.
 
 ## Instructions
 
