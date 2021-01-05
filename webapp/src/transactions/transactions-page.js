@@ -3,8 +3,7 @@ import React, { Fragment } from 'react'
 export function Transactions () {
   return (
     <Fragment>
-      {/* <Link to='/'>Home/Link> */}
-      <div>Content for /another route</div>
+      <div>Content for /transactions route</div>
     </Fragment>
   )
 }
