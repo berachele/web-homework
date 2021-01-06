@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 // import { useHistory } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+
 
 const initialTransactions = [
   { id: uuid(), amount: '$100', date: '12/20/2020'},
@@ -34,8 +37,12 @@ export function Transactions () {
     setTransactions([...transactions, newTransaction])
   }
 
-  const enterTransaction = () => {
-    console.log('Clicked!!')
+  const editTransaction = () => {
+    console.log('Clicked EDIT!!')
+  }
+  
+  const deleteTransaction = () => {
+    console.log('Clicked DELETE!!')
   }
 
   return (
@@ -47,7 +54,14 @@ export function Transactions () {
       />
       <h3>List of Transactions</h3>
       {
-        transactions.map(transaction => <div key={transaction.id} onClick={enterTransaction}> {transaction.amount} spent on {transaction.date} </div>)
+        transactions.map(transaction => 
+        <>
+          <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
+            <p>{transaction.amount} spent on {transaction.date}</p>
+            <EditIcon onClick={editTransaction}/> 
+            <DeleteIcon onClick={deleteTransaction} style={{color: 'red'}}/> 
+          </div> 
+        </>)
       }
     </div>
   )
