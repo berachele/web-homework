@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 
-export function Home () {
+export function Transactions () {
   return (
     <Fragment>
-      <div>Ready, steady, go!</div>
+      <div>Content for /transactions route</div>
     </Fragment>
   )
 }
