@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
 const initialTransactions = [
@@ -19,6 +19,7 @@ export function Transactions () {
       ...formValues,
       [event.target.name]: event.target.value
     })
+    console.log('changing to:', event.target.value)
   }
 
   const formSubmit = event => {
@@ -33,44 +34,49 @@ export function Transactions () {
     setTransactions([...transactions, newTransaction])
   }
 
-  function Form(props){
-    return (
-      <form onSubmit={props.formSubmit}>
-          <label> Amount
-            <input
-              onChange={props.handleChange} 
-              value={props.formValues.amount}
-              name='amount'
-              type='text'
-            />
-          </label>
-          <br></br>
-          <label> Date
-            <input
-              onChange={props.handleChange} 
-              value={props.formValues.date}
-              name='date'
-              type='text'
-            />
-          </label>
-          <br />
-  
-          <input type='submit' />
-        </form>
-    )
+  const enterTransaction = () => {
+    console.log('Clicked!!')
   }
 
   return (
     <div>
-        <Form
-          handleChange={handleChange}
-          formValues={formValues}
-          formSubmit={formSubmit}
-        />
-        <h3>List of Transactions</h3>
-        {
-          transactions.map(transaction => <div key={transaction.id}> {transaction.amount} spent on {transaction.date} </div>)
-        }
+      <Form
+        handleChange={handleChange}
+        formValues={formValues}
+        formSubmit={formSubmit}
+      />
+      <h3>List of Transactions</h3>
+      {
+        transactions.map(transaction => <div key={transaction.id} onClick={enterTransaction}> {transaction.amount} spent on {transaction.date} </div>)
+      }
     </div>
+  )
+}
+
+function Form(props){
+  return (
+    <form onSubmit={props.formSubmit}>
+        <label> Amount &nbsp;
+          <input
+            onChange={props.handleChange} 
+            value={props.formValues.amount}
+            name='amount'
+            type='text'
+          />
+        </label>
+        <br/>
+        
+        <label> Date &nbsp;
+          <input
+            onChange={props.handleChange} 
+            value={props.formValues.date}
+            name='date'
+            type='text'
+          />
+        </label>
+        <br /><br />
+
+        <input type='submit' />
+      </form>
   )
 }
