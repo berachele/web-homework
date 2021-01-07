@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { v4 as uuid } from 'uuid'
+import Form from './form'
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
@@ -44,9 +45,8 @@ export function Transactions () {
   
   const deleteTransaction = (transaction) => {
     let findIndex = transactions.indexOf(transaction)
-    console.log({findIndex})
     transactions.splice(findIndex, 1)
-    console.log({transactions})
+    setTransactions([...transactions])
   }
 
   return (
@@ -69,33 +69,5 @@ export function Transactions () {
         </>)
       }
     </div>
-  )
-}
-
-function Form(props){
-  return (
-    <form onSubmit={props.handleSubmit}>
-        <label> Amount &nbsp;
-          <input
-            onChange={props.handleChange} 
-            value={props.formValues.amount}
-            name='amount'
-            type='text'
-          />
-        </label>
-        <br/>
-        
-        <label> Date &nbsp;
-          <input
-            onChange={props.handleChange} 
-            value={props.formValues.date}
-            name='date'
-            type='text'
-          />
-        </label>
-        <br /><br />
-
-        <input type='submit' />
-      </form>
   )
 }
