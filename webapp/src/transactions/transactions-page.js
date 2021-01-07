@@ -1,31 +1,30 @@
 import React, { useState } from 'react'
-// import { useHistory } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
-
 
 const initialTransactions = [
   { id: uuid(), amount: '$100', date: '12/20/2020'},
   { id: uuid(), amount: '$5', date: '01/05/2021'},
 ]
 
+const initialFormValue = {
+  amount: '',
+  date: '',
+}
+
 export function Transactions () {
   const [transactions, setTransactions] = useState(initialTransactions)
-  const [formValues, setFormValues] = useState({
-    amount: '',
-    date: '',
-})
+  const [formValues, setFormValues] = useState(initialFormValue)
 
   const handleChange = event => {
     setFormValues({
       ...formValues,
       [event.target.name]: event.target.value
     })
-    console.log('changing to:', event.target.value)
   }
 
-  const formSubmit = event => {
+  const handleSubmit = event => {
     event.preventDefault()
 
     const newTransaction = {
@@ -33,16 +32,21 @@ export function Transactions () {
       amount: formValues.amount,
       date: formValues.date
     }
-
     setTransactions([...transactions, newTransaction])
+    setFormValues(initialFormValue)
   }
 
-  const editTransaction = () => {
+  const editTransaction = (transaction) => {
     console.log('Clicked EDIT!!')
+
+    console.log({transaction})
   }
   
-  const deleteTransaction = () => {
-    console.log('Clicked DELETE!!')
+  const deleteTransaction = (transaction) => {
+    let findIndex = transactions.indexOf(transaction)
+    console.log({findIndex})
+    transactions.splice(findIndex, 1)
+    console.log({transactions})
   }
 
   return (
@@ -50,7 +54,8 @@ export function Transactions () {
       <Form
         handleChange={handleChange}
         formValues={formValues}
-        formSubmit={formSubmit}
+        handleSubmit={handleSubmit}
+
       />
       <h3>List of Transactions</h3>
       {
@@ -58,8 +63,8 @@ export function Transactions () {
         <>
           <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
             <p>{transaction.amount} spent on {transaction.date}</p>
-            <EditIcon onClick={editTransaction}/> 
-            <DeleteIcon onClick={deleteTransaction} style={{color: 'red'}}/> 
+            <EditIcon onClick={()=>editTransaction(transaction)}/> 
+            <DeleteIcon onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
           </div> 
         </>)
       }
@@ -69,7 +74,7 @@ export function Transactions () {
 
 function Form(props){
   return (
-    <form onSubmit={props.formSubmit}>
+    <form onSubmit={props.handleSubmit}>
         <label> Amount &nbsp;
           <input
             onChange={props.handleChange} 
