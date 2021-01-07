@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import Form from './form'
-import { makeStyles } from '@material-ui/core/styles';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
 
 const initialTransactions = [
-  { id: uuid(), amount: '$100', date: '12/20/2020'},
-  { id: uuid(), amount: '$5', date: '01/05/2021'},
+  { id: uuid(), amount: '$100', date: '12/20/2020', isOpen: false},
+  { id: uuid(), amount: '$5', date: '01/05/2021', isOpen: false},
 ]
 
 const initialFormValue = {
   amount: '',
   date: '',
+  isOpen: false
 }
+
 
 export function Transactions () {
   const [transactions, setTransactions] = useState(initialTransactions)
@@ -44,15 +41,21 @@ export function Transactions () {
   }
 
   const editTransaction = (transaction) => {
+    let findIndex = transactions.indexOf(transaction)
     console.log('Clicked EDIT!!')
-
-    console.log({transaction})
+    let newArray = [...transactions]
+    newArray[findIndex].isOpen = true
+    setTransactions(newArray)
+    // console.log(transactions[findIndex].isOpen)
+    // console.log({transactions})
   }
   
   const deleteTransaction = (transaction) => {
     let findIndex = transactions.indexOf(transaction)
     transactions.splice(findIndex, 1)
+    console.log({findIndex})
     setTransactions([...transactions])
+    console.log({transactions})
   }
 
   return (
@@ -61,8 +64,8 @@ export function Transactions () {
         handleChange={handleChange}
         formValues={formValues}
         handleSubmit={handleSubmit}
-
       />
+
       <h3>List of Transactions</h3>
       {
         transactions.map(transaction => 
@@ -72,46 +75,11 @@ export function Transactions () {
             <EditIcon onClick={()=>editTransaction(transaction)}/> 
             <DeleteIcon onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
           </div> 
+          { transaction.isOpen && 
+          <p>LEEEROY JEEEENKINS</p>
+          }
         </>)
       }
-      <SimpleAccordian />
     </div>
-  )
-}
-
-const accordianStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
-}));
-
-function SimpleAccordian(){
-  const classes = accordianStyles()
-
-  return (
-    <>
-    <Accordion>
-      <AccordionSummary
-        expandIcon={<EditIcon />}
-        aria-controls="panel1a-content"
-        id="panel1a-header"
-      >
-        <Typography className={classes.heading}>Accordian 1</Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        Hello there
-        {/* <Form 
-          handleChange={handleChange}
-          formValues={formValues}
-          handleSubmit={handleSubmit}
-          // type={formTypeEdit}
-        /> */}
-      </AccordionDetails>
-    </Accordion>
-    </>
   )
 }
