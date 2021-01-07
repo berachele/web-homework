@@ -1,8 +1,14 @@
 import React, { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import Form from './form'
+import { makeStyles } from '@material-ui/core/styles';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+
 
 const initialTransactions = [
   { id: uuid(), amount: '$100', date: '12/20/2020'},
@@ -68,6 +74,44 @@ export function Transactions () {
           </div> 
         </>)
       }
+      <SimpleAccordian />
     </div>
+  )
+}
+
+const accordianStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+  },
+}));
+
+function SimpleAccordian(){
+  const classes = accordianStyles()
+
+  return (
+    <>
+    <Accordion>
+      <AccordionSummary
+        expandIcon={<EditIcon />}
+        aria-controls="panel1a-content"
+        id="panel1a-header"
+      >
+        <Typography className={classes.heading}>Accordian 1</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        Hello there
+        {/* <Form 
+          handleChange={handleChange}
+          formValues={formValues}
+          handleSubmit={handleSubmit}
+          // type={formTypeEdit}
+        /> */}
+      </AccordionDetails>
+    </Accordion>
+    </>
   )
 }
