@@ -1,4 +1,6 @@
 function Form(props){
+    console.log('formValues: ', props.formValues)
+    console.log(props.formType, "Type")
     return (
       <form onSubmit={props.handleSubmit}>
           <label> Amount &nbsp;

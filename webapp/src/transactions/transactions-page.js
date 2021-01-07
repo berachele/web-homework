@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { v4 as uuid } from 'uuid'
+//components
 import Form from './form'
+//materialui components/styles
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
 
 const initialTransactions = [
-  { id: uuid(), amount: '$100', date: '12/20/2020', isOpen: false},
-  { id: uuid(), amount: '$5', date: '01/05/2021', isOpen: false},
+  { id: uuid(), amount: '$100', date: '12/20/2020', isOpen: false },
+  { id: uuid(), amount: '$5', date: '01/05/2021', isOpen: false },
 ]
 
 const initialFormValue = {
@@ -16,10 +18,11 @@ const initialFormValue = {
   isOpen: false
 }
 
-
 export function Transactions () {
   const [transactions, setTransactions] = useState(initialTransactions)
   const [formValues, setFormValues] = useState(initialFormValue)
+
+  const edit = 'edit'
 
   const handleChange = event => {
     setFormValues({
@@ -39,17 +42,14 @@ export function Transactions () {
     setTransactions([...transactions, newTransaction])
     setFormValues(initialFormValue)
   }
-
-  const editTransaction = (transaction) => {
+  
+  const openEditTransaction = (transaction) => {
     let findIndex = transactions.indexOf(transaction)
-    console.log('Clicked EDIT!!')
     let newArray = [...transactions]
     newArray[findIndex].isOpen = true
     setTransactions(newArray)
-    // console.log(transactions[findIndex].isOpen)
-    // console.log({transactions})
   }
-  
+
   const deleteTransaction = (transaction) => {
     let findIndex = transactions.indexOf(transaction)
     transactions.splice(findIndex, 1)
@@ -72,11 +72,16 @@ export function Transactions () {
         <>
           <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
             <p>{transaction.amount} spent on {transaction.date}</p>
-            <EditIcon onClick={()=>editTransaction(transaction)}/> 
+            <EditIcon onClick={()=>openEditTransaction(transaction)}/> 
             <DeleteIcon onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
           </div> 
           { transaction.isOpen && 
-          <p>LEEEROY JEEEENKINS</p>
+          <Form
+            formType={edit}
+            handleChange={handleChange}
+            formValues={{id: transaction.id, amount: transaction.amount, date: transaction.date}}
+            handleSubmit={handleSubmit}
+          />
           }
         </>)
       }
