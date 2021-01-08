@@ -69,7 +69,7 @@ export function Transactions () {
         transactions.map(transaction => 
         <>
           <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
-            <p>{transaction.amount} spent on {transaction.date}</p>
+            <p data-testid='transaction'>{transaction.amount} spent on {transaction.date}</p>
             <EditIcon onClick={()=>openEditFrom(transaction)}/> 
             <DeleteIcon onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
           </div> 
