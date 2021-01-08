@@ -8,8 +8,8 @@ import EditIcon from '@material-ui/icons/Edit';
 
 //dummy data to show transactions on Mount
 const initialTransactions = [
-  { id: uuid(), user: 'Hermoine', merchant: 'Honey Duke\'s', amount: '$100', date: '12/20/2020', isOpen: false },
-  { id: uuid(), user: 'Harry', merchant: 'Ollivander\'s Wand Shop', amount: '$5', date: '01/05/2021', isOpen: false },
+  { id: uuid(), user: 'Hermoine', merchant: 'Flourish and Blotts', amount: '100', date: '12/20/2020', isOpen: false },
+  { id: uuid(), user: 'Harry', merchant: 'Ollivander\'s Wand Shop', amount: '5', date: '01/05/2021', isOpen: false },
 ]
 
 const initialFormValues = {
@@ -27,7 +27,7 @@ export function Transactions () {
   const [formValues, setFormValues] = useState(initialFormValues)
 
 
-  const createTransactionSubmission =  (id, user, merchant, amount, date ) => {
+  const createTransactionSubmission =  ( id, user, merchant, amount, date ) => {
     const newTransaction = { id, user, merchant, amount, date }
     setTransactions([...transactions, newTransaction])
   }
@@ -71,7 +71,7 @@ export function Transactions () {
         transactions.map(transaction => 
         <>
           <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
-            <p>{transaction.user} spent {transaction.amount} at {transaction.merchant} on {transaction.date}</p>
+            <p>{transaction.user} spent ${transaction.amount} at {transaction.merchant} on {transaction.date}</p>
             <EditIcon onClick={()=>openEditFrom(transaction)}/> 
             <DeleteIcon onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
           </div> 
