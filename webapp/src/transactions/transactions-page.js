@@ -8,17 +8,17 @@ import EditIcon from '@material-ui/icons/Edit';
 
 //dummy data to show transactions on Mount
 const initialTransactions = [
-  { id: uuid(), amount: '$100', date: '12/20/2020', user: 'Hermoine', merchant: 'Honey Duke\'s', isOpen: false },
-  { id: uuid(), amount: '$5', date: '01/05/2021', user: 'Harry', merchant: 'Ollivander\'s Wand Shop', isOpen: false },
+  { id: uuid(), user: 'Hermoine', merchant: 'Honey Duke\'s', amount: '$100', date: '12/20/2020', isOpen: false },
+  { id: uuid(), user: 'Harry', merchant: 'Ollivander\'s Wand Shop', amount: '$5', date: '01/05/2021', isOpen: false },
 ]
 
 const initialFormValues = {
   //id with uuid() only being used when you create a transaction
   id: uuid(),
-  amount: '',
-  date: '',
   user: '',
   merchant: '',
+  amount: '',
+  date: '',
   isOpen: false
 }
 
@@ -27,14 +27,14 @@ export function Transactions () {
   const [formValues, setFormValues] = useState(initialFormValues)
 
 
-  const createTransactionSubmission = (id, amount, date) => {
-    const newTransaction = { id, amount, date }
+  const createTransactionSubmission =  (id, user, merchant, amount, date ) => {
+    const newTransaction = { id, user, merchant, amount, date }
     setTransactions([...transactions, newTransaction])
   }
 
-  const editTransactionSubmission = ( id, amount, date ) => {
+  const editTransactionSubmission = ( id, user, merchant, amount, date ) => {
     //setting isOpen to false so form will close after submission
-    const newTransaction = { id, amount, date, isOpen: false}
+    const newTransaction = { id, user, merchant, amount, date, isOpen: false}
 
     let newTransactionIndex = transactions.findIndex((transaction) => {
       return transaction.id === id
