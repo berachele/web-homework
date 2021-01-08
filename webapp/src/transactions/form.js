@@ -1,12 +1,30 @@
+import React, { useState } from 'react'
+
 function Form(props){
-    console.log('formValues: ', props.formValues)
-    console.log(props.formType, "Type")
+    const [formValues, setFormValues] = useState(props.formValues)
+
+    const handleChange = event => {
+        setFormValues({
+          ...formValues,
+          [event.target.name]: event.target.value
+        })
+      }
+
+    const onSubmit = event => {
+        //stops the rerendering after adding transaction
+        event.preventDefault()
+
+        props.onSubmit(formValues.id, formValues.amount, formValues.date, formValues.isOpen)
+        //clearing form after submission
+        setFormValues(props.initialFormValues)
+    }
+
     return (
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={onSubmit}>
           <label> Amount &nbsp;
             <input
-              onChange={props.handleChange} 
-              value={props.formValues.amount}
+              onChange={handleChange} 
+              value={formValues.amount}
               name='amount'
               type='text'
             />
@@ -15,8 +33,8 @@ function Form(props){
           
           <label> Date &nbsp;
             <input
-              onChange={props.handleChange} 
-              value={props.formValues.date}
+              onChange={handleChange} 
+              value={formValues.date}
               name='date'
               type='text'
             />
