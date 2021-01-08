@@ -14,14 +14,34 @@ function Form(props){
         //stops the rerendering after adding transaction
         event.preventDefault()
 
-        props.onSubmit(formValues.id, formValues.amount, formValues.date, formValues.isOpen)
+        props.onSubmit(formValues.id, formValues.user, formValues.merchant, formValues.amount, formValues.date, formValues.isOpen)
         //clearing form after submission
         setFormValues(props.initialFormValues)
     }
 
     return (
       <form onSubmit={onSubmit}>
-          <label> Amount &nbsp;
+          <label> User: &nbsp;
+            <input
+              onChange={handleChange} 
+              value={formValues.user}
+              name='user'
+              type='text'
+            />
+          </label>
+          <br/>
+
+          <label> Merchant: &nbsp;
+            <input
+              onChange={handleChange} 
+              value={formValues.merchant}
+              name='merchant'
+              type='text'
+            />
+          </label>
+          <br/>
+
+          <label> Amount: &nbsp;$
             <input
               onChange={handleChange} 
               value={formValues.amount}
@@ -31,12 +51,13 @@ function Form(props){
           </label>
           <br/>
           
-          <label> Date &nbsp;
+          <label> Date: &nbsp;
             <input
               onChange={handleChange} 
               value={formValues.date}
               name='date'
               type='text'
+              placeholder='MM/DD/YYYY'
             />
           </label>
           <br /><br />
