@@ -23,6 +23,7 @@ function Form(props){
       <form onSubmit={onSubmit}>
           <label> Amount &nbsp;
             <input
+              data-testid="amount"
               onChange={handleChange} 
               value={formValues.amount}
               name='amount'
@@ -33,6 +34,7 @@ function Form(props){
           
           <label> Date &nbsp;
             <input
+              data-testid="date"
               onChange={handleChange} 
               value={formValues.date}
               name='date'
