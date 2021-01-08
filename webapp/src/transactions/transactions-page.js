@@ -2,17 +2,19 @@ import React, { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 //components
 import Form from './form'
-//materialui components/styles
+//materialui icons
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
-
+//dummy data to show transactions on Mount
 const initialTransactions = [
   { id: uuid(), amount: '$100', date: '12/20/2020', isOpen: false },
   { id: uuid(), amount: '$5', date: '01/05/2021', isOpen: false },
 ]
 
-const initialFormValue = {
+const initialFormValues = {
+  //id with uuid() only being used when you create a transaction
+  id: uuid(),
   amount: '',
   date: '',
   isOpen: false
@@ -20,50 +22,46 @@ const initialFormValue = {
 
 export function Transactions () {
   const [transactions, setTransactions] = useState(initialTransactions)
-  const [formValues, setFormValues] = useState(initialFormValue)
+  const [formValues, setFormValues] = useState(initialFormValues)
 
-  const edit = 'edit'
 
-  const handleChange = event => {
-    setFormValues({
-      ...formValues,
-      [event.target.name]: event.target.value
-    })
-  }
-
-  const handleSubmit = event => {
-    event.preventDefault()
-
-    const newTransaction = {
-      id: uuid(),
-      amount: formValues.amount,
-      date: formValues.date
-    }
+  const createTransactionSubmission = (id, amount, date) => {
+    const newTransaction = { id, amount, date }
     setTransactions([...transactions, newTransaction])
-    setFormValues(initialFormValue)
   }
-  
-  const openEditTransaction = (transaction) => {
-    let findIndex = transactions.indexOf(transaction)
+
+  const editTransactionSubmission = ( id, amount, date ) => {
+    //setting isOpen to false so form will close after submission
+    const newTransaction = { id, amount, date, isOpen: false}
+
+    let newTransactionIndex = transactions.findIndex((transaction) => {
+      return transaction.id === id
+    })
+
     let newArray = [...transactions]
-    newArray[findIndex].isOpen = true
+    newArray[newTransactionIndex] = newTransaction
     setTransactions(newArray)
   }
 
   const deleteTransaction = (transaction) => {
-    let findIndex = transactions.indexOf(transaction)
-    transactions.splice(findIndex, 1)
-    console.log({findIndex})
+    let transactionIndex = transactions.indexOf(transaction)
+    transactions.splice(transactionIndex, 1)
     setTransactions([...transactions])
-    console.log({transactions})
+  }
+  
+  const openEditFrom = (transaction) => {
+    let transactionIndex = transactions.indexOf(transaction)
+    let newArray = [...transactions]
+    newArray[transactionIndex].isOpen = true
+    setTransactions(newArray)
   }
 
   return (
     <div>
       <Form
-        handleChange={handleChange}
+        onSubmit={createTransactionSubmission}
         formValues={formValues}
-        handleSubmit={handleSubmit}
+        initialFormValues={initialFormValues}
       />
 
       <h3>List of Transactions</h3>
@@ -72,15 +70,14 @@ export function Transactions () {
         <>
           <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
             <p>{transaction.amount} spent on {transaction.date}</p>
-            <EditIcon onClick={()=>openEditTransaction(transaction)}/> 
+            <EditIcon onClick={()=>openEditFrom(transaction)}/> 
             <DeleteIcon onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
           </div> 
+          {/* edit form will only open when transaction.isOpen is true */}
           { transaction.isOpen && 
           <Form
-            formType={edit}
-            handleChange={handleChange}
-            formValues={{id: transaction.id, amount: transaction.amount, date: transaction.date}}
-            handleSubmit={handleSubmit}
+            onSubmit={editTransactionSubmission}
+            formValues={{ id: transaction.id, amount: transaction.amount, date: transaction.date, isOpen: transaction.isOpen }}
           />
           }
         </>)
