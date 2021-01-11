@@ -69,9 +69,9 @@ export function Transactions () {
         transactions.map(transaction => 
         <>
           <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
-            <p data-testid='transaction'>{transaction.amount} spent on {transaction.date}</p>
-            <EditIcon onClick={()=>openEditFrom(transaction)}/> 
-            <DeleteIcon onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
+            <p className='transaction'>{transaction.amount} spent on {transaction.date}</p>
+            <EditIcon id='edit' onClick={()=>openEditFrom(transaction)}/> 
+            <DeleteIcon id='delete' onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
           </div> 
           {/* edit form will only open when transaction.isOpen is true */}
           { transaction.isOpen && 
