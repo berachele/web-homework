@@ -24,6 +24,7 @@ function Form(props){
           <label> Amount &nbsp;
             <input
               data-testid='amount'
+              className='amount'
               onChange={handleChange} 
               value={formValues.amount}
               name='amount'
@@ -43,7 +44,7 @@ function Form(props){
           </label>
           <br /><br />
   
-          <input type='submit' data-testid='submit'/>
+          <input type='submit' data-testid='submit' className='submit'/>
         </form>
     )
   }
