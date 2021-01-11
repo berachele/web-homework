@@ -20,7 +20,7 @@ function Form(props){
     }
 
     return (
-      <form onSubmit={onSubmit}>
+      <form className='form' onSubmit={onSubmit}>
           <label> User: &nbsp;
             <input
               data-testid='user'

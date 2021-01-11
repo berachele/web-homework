@@ -31,25 +31,35 @@ describe('Transactions page test suite', () => {
   it('Form to enter and add transaction successfully works', async() => {
     const { getByTestId } = render(<Transactions />)
     //entering values
+    const userInput = getByTestId(/user/i)
+    const merchantInput = getByTestId(/merchant/i)
     const amountInput = getByTestId(/amount/i)
     const dateInput = getByTestId(/date/i)
 
-    fireEvent.change(amountInput, { target: { value: '$45' } })
-    fireEvent.change(dateInput, { target: { value: '11/25/2020' } })
+    fireEvent.change(userInput, { target: { value: 'Ron' } })
+    fireEvent.change(merchantInput, { target: { value: 'Weasley\'s Wizard Wheezes' } })
+    fireEvent.change(amountInput, { target: { value: '15' } })
+    fireEvent.change(dateInput, { target: { value: '07/31/2020' } })
     
-    expect(amountInput.value).toBe('$45')
-    expect(dateInput.value).toBe('11/25/2020')
+    expect(userInput.value).toBe('Ron')
+    expect(merchantInput.value).toBe('Weasley\'s Wizard Wheezes')
+    expect(amountInput.value).toBe('15')
+    expect(dateInput.value).toBe('07/31/2020')
     //submission
     fireEvent.click(getByTestId(/submit/i))
 
+    const userValue = await userInput.value
+    const merchantValue = await merchantInput.value
     const amountValue = await amountInput.value
     const dateValue = await dateInput.value
 
+    expect(userValue).toBe('')
+    expect(merchantValue).toBe('')
     expect(amountValue).toBe('')
     expect(dateValue).toBe('')
   })
 
-  it('Clicking Edit Icon successfully open up edit form', async() => {
+  it('Clicking Edit Icon successfully opens up edit form', async() => {
     render(<Transactions />)
     const editBtnNodeList = document.querySelectorAll('#edit')
     const firstTransaction = editBtnNodeList[0]
@@ -68,13 +78,13 @@ describe('Transactions page test suite', () => {
   it('Form to edit transaction successfully works', async() => {
     const { getByDisplayValue } = render(<Transactions />)
     //editing values
-    const amountInput = getByDisplayValue('$100')
+    const amountInput = getByDisplayValue('100')
 
-    fireEvent.change(amountInput, { target: { value: '$45' } })
+    fireEvent.change(amountInput, { target: { value: '45' } })
     
     const amountValue = await amountInput.value
 
-    expect(amountValue).toBe('$45')
+    expect(amountValue).toBe('45')
     
     //submission
     const submitButtons = document.querySelectorAll('.submit')
@@ -84,7 +94,7 @@ describe('Transactions page test suite', () => {
 
     const updatedTransaction = await document.querySelector('.transaction').textContent
 
-    expect(updatedTransaction).toBe('$45 spent on 12/20/2020')
+    expect(updatedTransaction).toBe('Hermoine spent $45 at Flourish and Blotts on 12/20/2020')
   })
 })
 

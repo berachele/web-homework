@@ -7,7 +7,29 @@ exports[`Transactions page test suite matches Transaction component snapshot 1`]
     onSubmit={[Function]}
   >
     <label>
-       Amount  
+       User:  
+      <input
+        data-testid="user"
+        name="user"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+    <br />
+    <label>
+       Merchant:  
+      <input
+        data-testid="merchant"
+        name="merchant"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+    <br />
+    <label>
+       Amount:  $
       <input
         className="amount"
         data-testid="amount"
@@ -19,11 +41,12 @@ exports[`Transactions page test suite matches Transaction component snapshot 1`]
     </label>
     <br />
     <label>
-       Date  
+       Date:  
       <input
         data-testid="date"
         name="date"
         onChange={[Function]}
+        placeholder="MM/DD/YYYY"
         type="text"
         value=""
       />
@@ -53,8 +76,12 @@ exports[`Transactions page test suite matches Transaction component snapshot 1`]
       <p
         className="transaction"
       >
-        $100
-         spent on 
+        Hermoine
+         spent $
+        100
+         at 
+        Flourish and Blotts
+         on 
         12/20/2020
       </p>
       <svg
@@ -102,8 +129,12 @@ exports[`Transactions page test suite matches Transaction component snapshot 1`]
       <p
         className="transaction"
       >
-        $5
-         spent on 
+        Harry
+         spent $
+        5
+         at 
+        Ollivander's Wand Shop
+         on 
         01/05/2021
       </p>
       <svg

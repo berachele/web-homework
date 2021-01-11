@@ -72,8 +72,8 @@ export function Transactions () {
         <div id='transaction-block'>
           <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
             <p className='transaction'>{transaction.user} spent ${transaction.amount} at {transaction.merchant} on {transaction.date}</p>
-            <EditIcon onClick={()=>openEditFrom(transaction)}/> 
-            <DeleteIcon onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
+            <EditIcon id='edit' onClick={()=>openEditFrom(transaction)}/> 
+            <DeleteIcon id='delete' onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
           </div> 
           {/* edit form will only open when transaction.isOpen is true */}
           { transaction.isOpen && 
