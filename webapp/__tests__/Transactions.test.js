@@ -7,6 +7,7 @@ describe('Transactions page test suite', () => {
   it('renders "List of Transactions" message', () => {
     const { getByText } = render(<Transactions />)
     const listTitle = getByText('List of Transactions')
+    
     expect(listTitle).toBeInTheDocument()
   })
 
