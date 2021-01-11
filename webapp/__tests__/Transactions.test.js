@@ -21,9 +21,13 @@ describe('Transactions page test suite', () => {
   it('Testing if inputs on form are visible on add form', () => {
     const { getByLabelText } = render(<Transactions />)
 
+    const userInput = getByLabelText(/User/i)
+    const merchantInput = getByLabelText(/Merchant/i)
     const amountInput = getByLabelText(/Amount/i)
     const dateInput = getByLabelText(/Date/i)
 
+    expect(userInput.value).toBe('')
+    expect(merchantInput.value).toBe('')
     expect(amountInput.value).toBe('')
     expect(dateInput.value).toBe('')
   })
