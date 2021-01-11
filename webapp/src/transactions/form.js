@@ -23,6 +23,7 @@ function Form(props){
       <form onSubmit={onSubmit}>
           <label> User: &nbsp;
             <input
+              data-testid='user'
               onChange={handleChange} 
               value={formValues.user}
               name='user'
@@ -33,6 +34,7 @@ function Form(props){
 
           <label> Merchant: &nbsp;
             <input
+              data-testid='merchant'
               onChange={handleChange} 
               value={formValues.merchant}
               name='merchant'
@@ -43,6 +45,8 @@ function Form(props){
 
           <label> Amount: &nbsp;$
             <input
+              data-testid='amount'
+              className='amount'
               onChange={handleChange} 
               value={formValues.amount}
               name='amount'
@@ -53,6 +57,7 @@ function Form(props){
           
           <label> Date: &nbsp;
             <input
+              data-testid='date'
               onChange={handleChange} 
               value={formValues.date}
               name='date'
@@ -62,7 +67,7 @@ function Form(props){
           </label>
           <br /><br />
   
-          <input type='submit' />
+          <input type='submit' data-testid='submit' className='submit'/>
         </form>
     )
   }

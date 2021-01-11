@@ -69,9 +69,9 @@ export function Transactions () {
       <h3>List of Transactions</h3>
       {
         transactions.map(transaction => 
-        <>
+        <div id='transaction-block'>
           <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
-            <p>{transaction.user} spent ${transaction.amount} at {transaction.merchant} on {transaction.date}</p>
+            <p className='transaction'>{transaction.user} spent ${transaction.amount} at {transaction.merchant} on {transaction.date}</p>
             <EditIcon onClick={()=>openEditFrom(transaction)}/> 
             <DeleteIcon onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
           </div> 
@@ -89,7 +89,7 @@ export function Transactions () {
             }}
           />
           }
-        </>)
+        </div>)
       }
     </div>
   )
