@@ -45,6 +45,27 @@ describe('Transactions page test suite', () => {
     expect(dateValue).toBe('')
   });
 
+  it('Clicking Edit Icon successfully open up edit form', async() => {
+    render(<Transactions />);
+    const editBtnNodeList = document.querySelectorAll('#edit')
+    const firstTransaction = editBtnNodeList[0]
+    const formsList = document.querySelectorAll('.form')
+    const formListLength = formsList.length
+    
+    expect(formListLength).toBe(1)
+
+    fireEvent.click(firstTransaction)
+
+    const newFormsList = await document.querySelectorAll('.form')
+
+    expect(newFormsList.length).toBe(2)
+  });
+
+  it('Form to edit transaction successfully works', () => {
+
+  });
+});
+
   it('Clicking Delete Icon successfully deletes that transaction', async() => {
     render(<Transactions />);
     const deleteBtnNodeList = document.querySelectorAll('#delete')
@@ -55,12 +76,7 @@ describe('Transactions page test suite', () => {
 
     fireEvent.click(firstTransaction)
 
-    const nodeListAfterDelete = await document.querySelectorAll('.transaction').length
+    const newNodeListLength = await document.querySelectorAll('.transaction').length
     
-    expect(nodeListAfterDelete).toBe(1)
+    expect(newNodeListLength).toBe(1)
   });
-
-  it('Clicking Edit Icon successfully open up edit form', () => {});
-
-  it('Form to edit transaction successfully works', () => {});
-});

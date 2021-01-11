@@ -67,7 +67,7 @@ export function Transactions () {
       <h3>List of Transactions</h3>
       {
         transactions.map(transaction => 
-        <>
+        <div id='transaction-block'>
           <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
             <p className='transaction'>{transaction.amount} spent on {transaction.date}</p>
             <EditIcon id='edit' onClick={()=>openEditFrom(transaction)}/> 
@@ -80,7 +80,7 @@ export function Transactions () {
             formValues={{ id: transaction.id, amount: transaction.amount, date: transaction.date, isOpen: transaction.isOpen }}
           />
           }
-        </>)
+        </div>)
       }
     </div>
   )
