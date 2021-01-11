@@ -8,13 +8,15 @@ import EditIcon from '@material-ui/icons/Edit';
 
 //dummy data to show transactions on Mount
 const initialTransactions = [
-  { id: uuid(), amount: '$100', date: '12/20/2020', isOpen: false },
-  { id: uuid(), amount: '$5', date: '01/05/2021', isOpen: false },
+  { id: uuid(), user: 'Hermoine', merchant: 'Flourish and Blotts', amount: '100', date: '12/20/2020', isOpen: false },
+  { id: uuid(), user: 'Harry', merchant: 'Ollivander\'s Wand Shop', amount: '5', date: '01/05/2021', isOpen: false },
 ]
 
 const initialFormValues = {
   //id with uuid() only being used when you create a transaction
   id: uuid(),
+  user: '',
+  merchant: '',
   amount: '',
   date: '',
   isOpen: false
@@ -25,14 +27,14 @@ export function Transactions () {
   const [formValues, setFormValues] = useState(initialFormValues)
 
 
-  const createTransactionSubmission = (id, amount, date) => {
-    const newTransaction = { id, amount, date }
+  const createTransactionSubmission =  ( id, user, merchant, amount, date ) => {
+    const newTransaction = { id, user, merchant, amount, date }
     setTransactions([...transactions, newTransaction])
   }
 
-  const editTransactionSubmission = ( id, amount, date ) => {
+  const editTransactionSubmission = ( id, user, merchant, amount, date ) => {
     //setting isOpen to false so form will close after submission
-    const newTransaction = { id, amount, date, isOpen: false}
+    const newTransaction = { id, user, merchant, amount, date, isOpen: false}
 
     let newTransactionIndex = transactions.findIndex((transaction) => {
       return transaction.id === id
@@ -69,7 +71,7 @@ export function Transactions () {
         transactions.map(transaction => 
         <div id='transaction-block'>
           <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
-            <p className='transaction'>{transaction.amount} spent on {transaction.date}</p>
+            <p className='transaction'>{transaction.user} spent ${transaction.amount} at {transaction.merchant} on {transaction.date}</p>
             <EditIcon id='edit' onClick={()=>openEditFrom(transaction)}/> 
             <DeleteIcon id='delete' onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
           </div> 
@@ -77,7 +79,14 @@ export function Transactions () {
           { transaction.isOpen && 
           <Form
             onSubmit={editTransactionSubmission}
-            formValues={{ id: transaction.id, amount: transaction.amount, date: transaction.date, isOpen: transaction.isOpen }}
+            formValues={{ 
+              id: transaction.id, 
+              amount: transaction.amount, 
+              date: transaction.date, 
+              user: transaction.user, 
+              merchant: transaction.merchant, 
+              isOpen: transaction.isOpen 
+            }}
           />
           }
         </div>)
