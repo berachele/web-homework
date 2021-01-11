@@ -1,7 +1,6 @@
 import React from 'react';
-import { render, fireEvent, cleanup, getByText } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-
 import { Transactions } from '../src/transactions';
 
 describe('Transactions page test suite', () => {
@@ -11,17 +10,21 @@ describe('Transactions page test suite', () => {
     expect(listTitle).toBeInTheDocument()
   })
 
-  //this will also watch Form because Form is imported in Transactions
-  // it('matches Transaction component snapshot', () => {
-  //   const tree = renderer.create(<Transactions />).toJSON()
-  //   expect(tree).toMatchSnapshot()
-  // })
+  // this will also watch Form because Form is imported in Transactions
+  it('matches Transaction component snapshot', () => {
+    const tree = renderer.create(<Transactions />).toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
 
   it('Testing if inputs on form are visible on add form', () => {
     const { getByLabelText } = render(<Transactions />)
 
-    getByLabelText(/Amount/i)
-    getByLabelText(/Date/i)
+    const amountInput = getByLabelText(/Amount/i)
+    const dateInput = getByLabelText(/Date/i)
+
+    expect(amountInput.value).toBe('')
+    expect(dateInput.value).toBe('')
   })
 
   it('Form to enter and add transaction successfully works', async() => {
