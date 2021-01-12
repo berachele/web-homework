@@ -5,15 +5,35 @@ import { PieChart } from 'react-minimal-pie-chart';
 export function Home () {
   return (
     <Fragment>
-      <div>Ready, steady, go!</div>
+      <h2>Available transactions</h2>
+      <div style={{display: 'flex', alignItems: 'center', alignContent: 'center'}}>
+        <div style={{width: '5%', height: '20px', background: '#169F6E', margin: '1%', borderRadius: '5%'}}></div><p>Available</p>
+        <div style={{width: '5%', height: '20px', background: 'black', margin: '0 1%', borderRadius: '5%'}}></div><p>Spent</p>
+      </div>
       <PieChart
-        style={{width: '25%'}}
-        labelPosition={'10%'}
+        style={{ width: '25%' }}
         data={[
-          { title: 'One', value: 10, color: '#1B3FB0' },
-          { title: 'Two', value: 15, color: '#FEC73A' },
-          { title: 'Three', value: 20, color: '#1B915A' },
+          {
+          color: "#169F6E",
+          title: "Available",
+          value: 30,
+          },
+          {
+          color: "black",
+          title: "Spent",
+          value: 15,
+          },
         ]}
+        label={({ dataEntry }) => `${Math.round(dataEntry.percentage)}%`}
+        labelPosition={80}
+        labelStyle={{ fontSize: '50%', fontWeight: 'bold'  }}
+        lengthAngle={360}
+        lineWidth={40} 
+        paddingAngle={40} //spacing between options or not
+        radius={50} //size 
+        rounded
+        startAngle={85}
+        viewBoxSize={[100, 100]}//changes size of box to view chart in
       />
     </Fragment>
   )
