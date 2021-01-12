@@ -5,10 +5,12 @@ import { PieChart } from 'react-minimal-pie-chart';
 export function Home () {
   return (
     <Fragment>
-      <h2>Available transactions</h2>
+      <h2>Credit Info</h2>
       <div style={{display: 'flex', alignItems: 'center', alignContent: 'center'}}>
-        <div style={{width: '5%', height: '20px', background: '#169F6E', margin: '1%', borderRadius: '5%'}}></div><p>Available</p>
-        <div style={{width: '5%', height: '20px', background: 'black', margin: '0 1%', borderRadius: '5%'}}></div><p>Spent</p>
+        <div style={{width: '5%', height: '20px', background: '#169F6E', margin: '1%', borderRadius: '5%'}}></div>
+        <p>Available</p>
+        <div style={{width: '5%', height: '20px', background: 'black', margin: '0 1%', borderRadius: '5%'}}></div
+        ><p>Spent</p>
       </div>
       <PieChart
         style={{ width: '25%' }}
@@ -29,11 +31,11 @@ export function Home () {
         labelStyle={{ fontSize: '50%', fontWeight: 'bold'  }}
         lengthAngle={360}
         lineWidth={40} 
-        paddingAngle={40} //spacing between options or not
-        radius={50} //size 
+        paddingAngle={40}
+        radius={50} 
         rounded
         startAngle={85}
-        viewBoxSize={[100, 100]}//changes size of box to view chart in
+        viewBoxSize={[100, 100]}
       />
     </Fragment>
   )
