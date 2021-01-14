@@ -30,13 +30,16 @@ function AppRouter () {
 export default AppRouter
 
 const layoutStyle = css`
-    display: grid;
-    grid-row-gap: 24px;
-    padding: 8px;
+    box-sizing: border box;
+    margin:0;
+    padding:0;
+    max-width:100%;
 `
 
 const navStyle = css`
   grid-row: 1;
+  background-color: grey;
+  padding: 2%;
 
   & > ul {
       display: flex;
