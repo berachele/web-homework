@@ -6,7 +6,7 @@ import Form from './form'
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 //styles
-import { containerStyles } from '../styles/transactions-page'
+import { containerStyles, editBttn, deleteBttn } from '../styles/transactions-page'
 
 //dummy data to show transactions on Mount
 const initialTransactions = [
@@ -78,8 +78,8 @@ export function Transactions () {
           <div id='transaction-block'>
             <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
               <p className='transaction'>{transaction.user} spent ${transaction.amount} at {transaction.merchant} on {transaction.date}</p>
-              <EditIcon id='edit' onClick={()=>openEditFrom(transaction)}/> 
-              <DeleteIcon id='delete' onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
+              <EditIcon id='edit' onClick={()=>openEditFrom(transaction)} css={editBttn}/> 
+              <DeleteIcon id='delete' onClick={()=>deleteTransaction(transaction)} css={deleteBttn}/> 
             </div> 
             {/* edit form will only open when transaction.isOpen is true */}
             { transaction.isOpen && 

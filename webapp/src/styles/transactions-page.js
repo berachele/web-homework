@@ -11,4 +11,25 @@ export const containerStyles = css`
     & > h2 {
         margin: 0;
     }
+//Enter a Transaction container
+    & :nth-child(2) {
+        width: 27%;
+    }
+//List of Transactions container
+    & :nth-child(3) {
+        margin-top: 4%;
+    }
+`
+export const editBttn = css`
+    :hover {
+        color: #9A8C98;
+    }
+`
+
+export const deleteBttn = css`
+    color: #C4233D;
+
+    :hover {
+        color: #DA2F4B;
+    }
 `

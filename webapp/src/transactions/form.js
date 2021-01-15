@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { formStyles } from '../styles/form'
 
 function Form(props){
     const [formValues, setFormValues] = useState(props.formValues)
@@ -20,7 +21,7 @@ function Form(props){
     }
 
     return (
-      <form className='form' onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className='form' css={formStyles}>
           <label> User: &nbsp;
             <input
               data-testid='user'
@@ -66,7 +67,7 @@ function Form(props){
             />
           </label>
           <br /><br />
-  
+          
           <input type='submit' data-testid='submit' className='submit'/>
         </form>
     )

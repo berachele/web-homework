@@ -20,6 +20,7 @@ export const navStyle = css`
       display: flex;
       flex-direction: row;
       list-style-type: none;
+      background: #22223b;
       
       & > li > a {
         color: #F2E9E4;
