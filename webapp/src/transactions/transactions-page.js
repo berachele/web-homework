@@ -6,7 +6,7 @@ import Form from './form'
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 //styles
-import { containerStyles, editBttn, deleteBttn } from '../styles/transactions-page'
+import { containerStyles, transactionStyles, editBttn, deleteBttn } from '../styles/transactions-page'
 
 //dummy data to show transactions on Mount
 const initialTransactions = [
@@ -76,7 +76,7 @@ export function Transactions () {
         {
           transactions.map(transaction => 
           <div id='transaction-block'>
-            <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
+            <div key={transaction.id} css={transactionStyles}> 
               <p className='transaction'>{transaction.user} spent ${transaction.amount} at {transaction.merchant} on {transaction.date}</p>
               <EditIcon id='edit' onClick={()=>openEditFrom(transaction)} css={editBttn}/> 
               <DeleteIcon id='delete' onClick={()=>deleteTransaction(transaction)} css={deleteBttn}/> 

@@ -33,6 +33,7 @@ function Form(props){
           </label>
           <br/>
 
+          &nbsp;&nbsp;
           <label> Merchant: &nbsp;
             <input
               data-testid='merchant'
@@ -56,6 +57,7 @@ function Form(props){
           </label>
           <br/>
           
+          &nbsp;&nbsp;
           <label> Date: &nbsp;
             <input
               data-testid='date'

@@ -20,9 +20,14 @@ export const containerStyles = css`
         margin-top: 4%;
     }
 `
+export const transactionStyles = css`
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #4A4E69;
+`
 export const editBttn = css`
     :hover {
-        color: #9A8C98;
+        color: #474747;
     }
 `
 
