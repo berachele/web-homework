@@ -14,7 +14,7 @@ export const navStyle = css`
   background-color: #22223B;
   padding: 2%;
   border-radius: 1%;
-
+  font-size: larger;
 
   & > ul {
       display: flex;

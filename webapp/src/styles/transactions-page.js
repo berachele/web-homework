@@ -20,10 +20,20 @@ export const containerStyles = css`
         margin-top: 4%;
     }
 `
+
+export const h2Styles = css`
+    padding-bottom: 2%;
+`
+
+export const transactionBlock = css`
+    border-bottom: 1px solid #4A4E69;
+    background: rgba(242, 233, 228, .5);
+    border-radius: 1%;
+`
+
 export const transactionStyles = css`
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #4A4E69;
 `
 export const editBttn = css`
     :hover {

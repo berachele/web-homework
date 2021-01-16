@@ -26,7 +26,7 @@ export const formStyles = css`
         color: #f2e9e4;
         border: 1px solid #117E58;
         box-shadow: 1px 1px grey;
-        margin-left: 15%;
+        margin-left: 14%;
 
         :hover {
             background: #18B47D;
