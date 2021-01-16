@@ -5,6 +5,8 @@ import Form from './form'
 //materialui icons
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+//styles
+import { containerStyles, h2Styles, transactionBlock, transactionStyles, editBttn, deleteBttn } from '../styles/transactions-page'
 
 //dummy data to show transactions on Mount
 const initialTransactions = [
@@ -60,37 +62,42 @@ export function Transactions () {
 
   return (
     <div>
-      <Form
-        onSubmit={createTransactionSubmission}
-        formValues={formValues}
-        initialFormValues={initialFormValues}
-      />
-
-      <h3>List of Transactions</h3>
-      {
-        transactions.map(transaction => 
-        <div id='transaction-block'>
-          <div key={transaction.id} style={{ display: 'flex', alignItems: 'center' }}> 
-            <p className='transaction'>{transaction.user} spent ${transaction.amount} at {transaction.merchant} on {transaction.date}</p>
-            <EditIcon id='edit' onClick={()=>openEditFrom(transaction)}/> 
-            <DeleteIcon id='delete' onClick={()=>deleteTransaction(transaction)} style={{color: 'red'}}/> 
-          </div> 
-          {/* edit form will only open when transaction.isOpen is true */}
-          { transaction.isOpen && 
-          <Form
-            onSubmit={editTransactionSubmission}
-            formValues={{ 
-              id: transaction.id, 
-              amount: transaction.amount, 
-              date: transaction.date, 
-              user: transaction.user, 
-              merchant: transaction.merchant, 
-              isOpen: transaction.isOpen 
-            }}
-          />
-          }
-        </div>)
-      }
+      <h1>Transactions</h1>
+      <div css={containerStyles}>
+        <h2>Enter a Transaction</h2>
+        <Form
+          onSubmit={createTransactionSubmission}
+          formValues={formValues}
+          initialFormValues={initialFormValues}
+        />
+      </div>
+      <div css={containerStyles}>
+        <h2 css={h2Styles}>List of Transactions</h2>
+        {
+          transactions.map(transaction => 
+          <div id='transaction-block' css={transactionBlock}>
+            <div key={transaction.id} css={transactionStyles}> 
+              <p className='transaction'>{transaction.user} spent ${transaction.amount} at {transaction.merchant} on {transaction.date}</p>
+              <EditIcon id='edit' onClick={()=>openEditFrom(transaction)} css={editBttn}/> 
+              <DeleteIcon id='delete' onClick={()=>deleteTransaction(transaction)} css={deleteBttn}/> 
+            </div> 
+            {/* edit form will only open when transaction.isOpen is true */}
+            { transaction.isOpen && 
+            <Form
+              onSubmit={editTransactionSubmission}
+              formValues={{ 
+                id: transaction.id, 
+                amount: transaction.amount, 
+                date: transaction.date, 
+                user: transaction.user, 
+                merchant: transaction.merchant, 
+                isOpen: transaction.isOpen 
+              }}
+            />
+            }
+          </div>)
+        }
+      </div>
     </div>
   )
 }
