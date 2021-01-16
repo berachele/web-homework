@@ -31,7 +31,7 @@ config :homework, HomeworkWeb.Endpoint,
 #     mix phx.gen.cert
 #
 # Note that this task requires Erlang/OTP 20 or later.
-# Run `mix help phx.gen.cert` for more information.
+# Run `mix help phx.gen.cert` for more information.`
 #
 # The `http:` config above can be replaced with:
 #
