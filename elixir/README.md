@@ -2,11 +2,13 @@
 
 You will need to have postgres running.
 The easiest way to install postgres is through brew:
-`brew install postgres`
+`brew install postgres`, then run `brew services start postgresql` to start server.
+Must be started before starting Phoenix server.
 
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
+  * Run `/usr/local/opt/postgres/bin/createuser -s postgres` to create `postgres` as a user (see elixir/config/dev.exs)
   * Create and migrate your database with `mix ecto.setup`
   * Start Phoenix endpoint with `mix phx.server`
 
