@@ -1,18 +1,23 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { PieChart } from 'react-minimal-pie-chart';
 import { creditInfoStyles, chartKeyStyles, greenKeyBox, blackKeyBox, pieChartStyles } from '../styles/home-page'
+import { formStyles } from '../styles/transaction-form'
 
 export function Home ({transactions}) {
-  const budget = 1000
+  //for budget form
+  const [budget, setBudget] = useState(1000)
+
+  //For setting values on PieChart data
   let totalSpent = 0
   var dollarsToCents = require('dollars-to-cents')
-//using dollarsToCents so piechart is accurate with the dolalr amounts (with decimals, not just whole numbers)
+
+  //using dollarsToCents so piechart is accurate with the dolalr amounts (with decimals, not just whole numbers)
   let changeAmountsToCents = transactions.map(transaction => dollarsToCents(transaction.amount))
-//changing amount input from a string to an integer
+
   let stringToIntArray = changeAmountsToCents.map(amount => parseInt(amount))
-//changing integers back to dollar amounts
+
   let convertBackToDollars = stringToIntArray.map(amount => amount / 100)
-//getting total Spent
+
   let getTotalSpent = convertBackToDollars.forEach(amount => totalSpent += amount)
 
   return (
@@ -20,6 +25,17 @@ export function Home ({transactions}) {
       <h1>Dashboard</h1>
       <div css={creditInfoStyles}>
         <h2>Credit Info</h2>
+        <form css={formStyles}>
+          <label>
+            Monthly Budget: &nbsp;$
+            <input 
+              onChange={event => setBudget(event.target.value)} 
+              value={budget} 
+              name='budget'
+              type='number' 
+            />
+          </label>
+        </form>
         <div css={chartKeyStyles}>
           <div css={greenKeyBox}></div>
           <p>Available</p>
