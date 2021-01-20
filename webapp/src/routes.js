@@ -30,8 +30,8 @@ function AppRouter () {
           </ul>
         </nav>
         <div className='main-content' css={contentStyle}>
-          <Route render={(props) => (<Home {...props} transactions={transactions} initialTransactions={initialTransactions} /> )} exact path='/' />
-          <Route render={(props) => (<Transactions {...props} transactions={transactions} setTransactions={setTransactions} initialTransactions={initialTransactions} /> )} exact path='/transactions' />
+          <Route render={(props) => (<Home {...props} transactions={transactions} /> )} exact path='/' />
+          <Route render={(props) => (<Transactions {...props} transactions={transactions} setTransactions={setTransactions} /> )} exact path='/transactions' />
         </div>
       </div>
     </Router>
