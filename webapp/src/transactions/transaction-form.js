@@ -3,6 +3,7 @@ import { formStyles } from '../styles/transaction-form'
 
 function Form(props){
     const [formValues, setFormValues] = useState(props.formValues)
+    console.log(formValues.user)
 
     const handleChange = event => {
         setFormValues({

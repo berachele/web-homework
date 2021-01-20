@@ -22,7 +22,6 @@ const initialFormValues = {
 export function Transactions ({transactions, setTransactions}) {
   const [formValues, setFormValues] = useState(initialFormValues)
 
-
   const createTransactionSubmission =  ( id, user, merchant, amount, date ) => {
     const newTransaction = { id, user, merchant, amount, date }
     setTransactions([...transactions, newTransaction])
