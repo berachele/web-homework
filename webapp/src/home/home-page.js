@@ -2,7 +2,8 @@ import React, { Fragment } from 'react'
 import { PieChart } from 'react-minimal-pie-chart';
 import { creditInfoStyles, chartKeyStyles, greenKeyBox, blackKeyBox, pieChartStyles } from '../styles/home-page'
 
-export function Home () {
+export function Home (props) {
+  console.log({props})
   return (
     <Fragment>
       <h1>Dashboard</h1>
