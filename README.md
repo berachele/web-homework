@@ -5,11 +5,11 @@ All of the configuration boilerplate is complete so you can start by writing the
 
 Please **fork** this repo to your GitHub account.
 
-## Tasks Completed (Frontend)
-  * Wrote a basic user inerface that allows users to enter, edit, and remove transactions using useState.
-    * Wrote basic tests for task using React Testing Library. Including a snapshot test and tests asserting DOM changes.
+## Tasks Completed (Frontend) in `/webapp`
+  * Wrote a basic user inerface that allows users to enter, edit, and remove transactions using `useState`.
+    * Wrote basic tests for task using `React Testing Library`. Including a snapshot test and tests asserting DOM changes.
   * Provided a pie chart of the spend per category, respectively, interacting with transaction data relation with budget.
-  * Added a user experience that showcases my abilities on the front end such as better navigation and improved styling. 
+  * Added a user experience that showcases my abilities on the front end such as better navigation and improved styling using `emotion-js`.
   
 ## Project Setup
 
