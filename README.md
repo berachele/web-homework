@@ -13,18 +13,15 @@ Please **fork** this repo to your GitHub account.
   
 ## Project Setup
 
-This repository is split into a web app directory (eg `/webapp`) and two server directories (eg `/webserver` and `/elixir`).
+**Node** version **11.15.0** is the version required for yarn start to successfully compile localhost. To change Node version, install **Node Version Manager** (`nvm`) by running these commands:
+ * `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash`
+ * `export NVM_DIR="$HOME/.nvm"` `[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"`
+ * `nvm use 11.15.0`
+ 
+Review [nvm docs](https://github.com/nvm-sh/nvm/blob/master/README.md) for more detail.
 
-The `/webserver` one includes a functional GraphQL server in NodeJS with MongoDB backing it.
-
-The `/elixir` one includes a functional GraphQL server in Elixir with Postgresql backing it.
-
-Pick one or the other to use.
-
-This project is intentionally not utilizing 3rd party services or create-react-app to give you the opportunity to showcase your talents wherever they are, be it the front end or the back end.
-
-**Node** version **12** is the safest NodeJS release to use.  You can try version 14, but there can be node-gyp/python issues on OSX.<br/>
-However, **Node** version **11.15.0** is the version required for yarn install to compile to localhost. Review [nvm docs](https://github.com/nvm-sh/nvm/blob/master/README.md) for more detail.
+Once Node **11.15.0** is setup, cd into `/webapp` file and `yarn start` to run localhost. <br/>
+Run `yarn test` to run testing file for transactions.
 
 ## Instructions
 
