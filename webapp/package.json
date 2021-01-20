@@ -49,6 +49,7 @@
     "apollo-link-http": "1.5.14",
     "apollo-link-state": "0.4.2",
     "axios": "0.19.0",
+    "dollars-to-cents": "^1.0.3",
     "emotion-theming": "10.0.10",
     "graphql": "14.3.1",
     "graphql-tag": "^2.10.1",

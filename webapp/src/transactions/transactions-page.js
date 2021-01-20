@@ -1,18 +1,13 @@
 import React, { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 //components
-import Form from './form'
+import Form from './transaction-form'
 //materialui icons
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 //styles
 import { containerStyles, h2Styles, transactionBlock, transactionStyles, editBttn, deleteBttn } from '../styles/transactions-page'
 
-//dummy data to show transactions on Mount
-const initialTransactions = [
-  { id: uuid(), user: 'Hermoine', merchant: 'Flourish and Blotts', amount: '100', date: '12/20/2020', isOpen: false },
-  { id: uuid(), user: 'Harry', merchant: 'Ollivander\'s Wand Shop', amount: '5', date: '01/05/2021', isOpen: false },
-]
 
 const initialFormValues = {
   //id with uuid() only being used when you create a transaction
@@ -24,8 +19,7 @@ const initialFormValues = {
   isOpen: false
 }
 
-export function Transactions () {
-  const [transactions, setTransactions] = useState(initialTransactions)
+export function Transactions ({transactions, setTransactions}) {
   const [formValues, setFormValues] = useState(initialFormValues)
 
 

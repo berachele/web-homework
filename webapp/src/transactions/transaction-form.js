@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { formStyles } from '../styles/form'
+import { formStyles } from '../styles/transaction-form'
 
 function Form(props){
     const [formValues, setFormValues] = useState(props.formValues)
