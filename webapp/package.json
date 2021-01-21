@@ -95,6 +95,7 @@
     "@babel/runtime": "7.4.5",
     "@emotion/babel-preset-css-prop": "10.0.9",
     "@emotion/jest": "^11.1.0",
+    "@testing-library/react-hooks": "^5.0.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "24.8.0",
     "babel-loader": "8.0.6",
