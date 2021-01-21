@@ -6,7 +6,6 @@ import { Transactions } from '../src/transactions';
 import { renderHook } from '@testing-library/react-hooks'
 import useMockTransactions from './useMockTransactions'
 
-
 describe('Transactions page test suite', () => {
   
   it('renders "List of Transactions" message', () => {
@@ -75,80 +74,6 @@ describe('Transactions page test suite', () => {
     expect(merchantValue).toBe('')
     expect(amountValue).toBe('')
     expect(dateValue).toBe('')
-  })
-
-  it('Clicking Edit Icon successfully opens up edit form', async() => {
-    const { result } = renderHook(() => useMockTransactions())
-
-    render(<Transactions transactions={result.current.mockTransactions} setTransactions={result.current.setMockTransactions}/>)
-    console.log('ENTERING CLICK EDIT TEST')
-
-    const editBtnNodeList = document.querySelectorAll('#edit')
-    const firstTransaction = editBtnNodeList[0]
-    const formsList = document.querySelectorAll('.form')
-    const formsListLength = formsList.length
-
-    console.log({formsList})
-
-    expect(formsListLength).toBe(1)
-
-    fireEvent.click(firstTransaction)
-
-    const newFormsList = await document.querySelectorAll('.form')
-    console.log({newFormsList})
-
-    await waitFor(() => expect(newFormsList.length).toBe(1))
-
-  })
-
-  it('Form to edit transaction successfully works', async() => {
-    const { result } = renderHook(() => useMockTransactions())
-    console.log('ENTERING EDIT FORM WORKS TEST')
-
-    const { getByDisplayValue } = render(<Transactions 
-      transactions={result.current.mockTransactions} 
-      setTransactions={result.current.setMockTransactions} 
-    />)
-
-    //testing
-    const formsList = document.querySelectorAll('.form')
-    console.log({formsList})
-
-    const amountInput = getByDisplayValue('100')
-
-    fireEvent.change(amountInput, { target: { value: '45' } }) 
-    
-    const amountValue = await amountInput.value
-
-    expect(amountValue).toBe('45')
-    
-    //submission
-    const submitButtons = document.querySelectorAll('.submit')
-    const mySubmitButton = submitButtons[1]
-
-    fireEvent.click(mySubmitButton)
-
-    const updatedTransaction = await document.querySelector('.transaction').textContent
-
-    expect(updatedTransaction).toBe('Hermoine spent $100 at Flourish and Blotts on 12/20/2020')
-  })
-  
-  it('Clicking Delete Icon successfully deletes that transaction', async() => {
-    const { result } = renderHook(() => useMockTransactions())
-    console.log('ENTERING DELETE TEST')
-    
-    render(<Transactions transactions={result.current.mockTransactions} setTransactions={result.current.setMockTransactions}/>)
-    const deleteBtnNodeList = document.querySelectorAll('#delete')
-    const nodeListLength = deleteBtnNodeList.length
-    const firstTransaction = deleteBtnNodeList[0]
-    
-    expect(nodeListLength).toBe(2)
-    
-    fireEvent.click(firstTransaction)
-    
-    const newNodeListLength = await document.querySelectorAll('.transaction').length
-    
-    expect(newNodeListLength).toBe(2)
   })
   
 })

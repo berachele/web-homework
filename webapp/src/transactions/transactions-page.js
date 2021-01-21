@@ -66,14 +66,13 @@ export function Transactions ({transactions, setTransactions}) {
       </div>
       <div css={containerStyles}>
         <h2 css={h2Styles}>List of Transactions</h2>
-        {/* {transactions.map(transaction => console.log('listing BACON transaction', transaction))} */}
         {
           transactions.map(transaction => 
           <div id='transaction-block' css={transactionBlock}>
             <div key={transaction.id} css={transactionStyles}> 
               <p className='transaction'>{transaction.user} spent ${transaction.amount} at {transaction.merchant} on {transaction.date}</p>
-              <EditIcon id='edit' onClick={()=>{openEditFrom(transaction); console.log('CLICKING EDIT BUTTON');}} css={editBttn}/> 
-              <DeleteIcon id='delete' onClick={()=>{deleteTransaction(transaction); console.log('CLICKING DELETE BUTTON');}} css={deleteBttn}/> 
+              <EditIcon id='edit' onClick={()=> openEditFrom(transaction)} css={editBttn}/> 
+              <DeleteIcon id='delete' onClick={()=> deleteTransaction(transaction)} css={deleteBttn}/> 
             </div> 
             {/* edit form will only open when transaction.isOpen is true */}
             { transaction.isOpen && 
