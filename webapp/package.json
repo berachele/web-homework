@@ -4,7 +4,7 @@
   "scripts": {
     "build": "webpack -d",
     "start": "webpack-dev-server -d --hot",
-    "test": "jest --coverage"
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen"
   },
   "jest": {
     "setupFiles": [

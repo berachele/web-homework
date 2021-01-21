@@ -1,46 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1611179461079" clover="3.2.0">
-  <project timestamp="1611179461079" name="All files">
-    <metrics statements="34" coveredstatements="34" conditionals="2" coveredconditionals="2" methods="12" coveredmethods="12" elements="48" coveredelements="48" complexity="0" loc="34" ncloc="34" packages="1" files="2" classes="2"/>
-    <file name="transaction-form.js" path="/Users/berachele/Desktop/web-homework/webapp/src/transactions/transaction-form.js">
-      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <line num="5" count="16" type="stmt"/>
-      <line num="6" count="16" type="stmt"/>
-      <line num="8" count="14" type="stmt"/>
-      <line num="9" count="5" type="stmt"/>
-      <line num="15" count="14" type="stmt"/>
-      <line num="17" count="2" type="stmt"/>
-      <line num="19" count="2" type="stmt"/>
-      <line num="21" count="2" type="stmt"/>
-      <line num="24" count="14" type="stmt"/>
-    </file>
-    <file name="transactions-page.js" path="/Users/berachele/Desktop/web-homework/webapp/src/transactions/transactions-page.js">
-      <metrics statements="25" coveredstatements="25" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="9"/>
-      <line num="12" count="1" type="stmt"/>
-      <line num="23" count="6" type="stmt"/>
-      <line num="25" count="6" type="stmt"/>
-      <line num="26" count="1" type="stmt"/>
-      <line num="27" count="1" type="stmt"/>
-      <line num="30" count="6" type="stmt"/>
-      <line num="32" count="1" type="stmt"/>
-      <line num="34" count="1" type="stmt"/>
-      <line num="35" count="1" type="stmt"/>
-      <line num="38" count="1" type="stmt"/>
-      <line num="39" count="1" type="stmt"/>
-      <line num="40" count="1" type="stmt"/>
-      <line num="43" count="6" type="stmt"/>
-      <line num="44" count="1" type="stmt"/>
-      <line num="45" count="1" type="stmt"/>
-      <line num="46" count="1" type="stmt"/>
-      <line num="49" count="6" type="stmt"/>
-      <line num="50" count="1" type="stmt"/>
-      <line num="51" count="1" type="stmt"/>
-      <line num="52" count="1" type="stmt"/>
-      <line num="53" count="1" type="stmt"/>
-      <line num="56" count="6" type="stmt"/>
-      <line num="71" count="12" type="stmt"/>
-      <line num="74" count="1" type="stmt"/>
-      <line num="75" count="1" type="stmt"/>
-    </file>
+<coverage generated="1611261078384" clover="3.2.0">
+  <project timestamp="1611261078384" name="All files">
+    <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4" elements="17" coveredelements="17" complexity="0" loc="13" ncloc="13" packages="2" files="2" classes="2"/>
+    <package name="__tests__">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="useMockTransactions.js" path="/Users/berachele/Desktop/web-homework/webapp/__tests__/useMockTransactions.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="36" count="11" type="stmt"/>
+        <line num="37" count="11" type="stmt"/>
+        <line num="39" count="11" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.transactions">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="transaction-form.js" path="/Users/berachele/Desktop/web-homework/webapp/src/transactions/transaction-form.js">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="5" count="16" type="stmt"/>
+        <line num="7" count="16" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="14" count="16" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="24" count="16" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>
