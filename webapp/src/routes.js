@@ -5,7 +5,6 @@ import { layoutStyle, navStyle, contentStyle } from './styles/routes'
 import { Home } from './home'
 import { Transactions } from './transactions'
 
-
 //dummy data to show transactions on Mount
 const initialTransactions = [
   { id: uuid(), user: 'Hermoine', merchant: 'Flourish and Blotts', amount: '100', date: '12/20/2020', isOpen: false },

@@ -22,7 +22,6 @@ const initialFormValues = {
 export function Transactions ({transactions, setTransactions}) {
   const [formValues, setFormValues] = useState(initialFormValues)
 
-
   const createTransactionSubmission =  ( id, user, merchant, amount, date ) => {
     const newTransaction = { id, user, merchant, amount, date }
     setTransactions([...transactions, newTransaction])
@@ -72,8 +71,8 @@ export function Transactions ({transactions, setTransactions}) {
           <div id='transaction-block' css={transactionBlock}>
             <div key={transaction.id} css={transactionStyles}> 
               <p className='transaction'>{transaction.user} spent ${transaction.amount} at {transaction.merchant} on {transaction.date}</p>
-              <EditIcon id='edit' onClick={()=>openEditFrom(transaction)} css={editBttn}/> 
-              <DeleteIcon id='delete' onClick={()=>deleteTransaction(transaction)} css={deleteBttn}/> 
+              <EditIcon id='edit' onClick={()=> openEditFrom(transaction)} css={editBttn}/> 
+              <DeleteIcon id='delete' onClick={()=> deleteTransaction(transaction)} css={deleteBttn}/> 
             </div> 
             {/* edit form will only open when transaction.isOpen is true */}
             { transaction.isOpen && 

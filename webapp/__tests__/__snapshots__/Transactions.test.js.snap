@@ -1,171 +1,269 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Transactions page test suite matches Transaction component snapshot 1`] = `
+.emotion-0 {
+  border: 2px solid #9a8c98;
+  background: rgba(154,140,152,.6);
+  border-radius: 1%;
+  width: 50%;
+  padding: 1%;
+}
+
+.emotion-0>h2 {
+  margin: 0;
+}
+
+.emotion-0:nth-child(2) {
+  width: 27%;
+}
+
+.emotion-0:nth-child(3) {
+  margin-top: 4%;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 1%;
+}
+
+.emotion-1>label {
+  font-weight: bold;
+  padding: 1% 0;
+  font-size: larger;
+}
+
+.emotion-1>label>input {
+  height: 20px;
+  font-size: initial;
+}
+
+.emotion-1>.submit {
+  height: 24px;
+  font-size: medium;
+  outline: none;
+  background: #169f6e;
+  color: #f2e9e4;
+  border: 1px solid #117E58;
+  box-shadow: 1px 1px grey;
+  margin-left: 14%;
+}
+
+.emotion-1>.submit:hover {
+  background: #18B47D;
+}
+
+.emotion-3 {
+  padding-bottom: 2%;
+}
+
+.emotion-4 {
+  border-bottom: 1px solid #4A4E69;
+  background: rgba(242,233,228,.5);
+  border-radius: 1%;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-6:hover {
+  color: #474747;
+}
+
+.emotion-7 {
+  color: #C4233D;
+}
+
+.emotion-7:hover {
+  color: #DA2F4B;
+}
+
 <div>
-  <form
-    className="form"
-    onSubmit={[Function]}
-  >
-    <label>
-       User:  
-      <input
-        data-testid="user"
-        name="user"
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-    </label>
-    <br />
-    <label>
-       Merchant:  
-      <input
-        data-testid="merchant"
-        name="merchant"
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-    </label>
-    <br />
-    <label>
-       Amount:  $
-      <input
-        className="amount"
-        data-testid="amount"
-        name="amount"
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-    </label>
-    <br />
-    <label>
-       Date:  
-      <input
-        data-testid="date"
-        name="date"
-        onChange={[Function]}
-        placeholder="MM/DD/YYYY"
-        type="text"
-        value=""
-      />
-    </label>
-    <br />
-    <br />
-    <input
-      className="submit"
-      data-testid="submit"
-      type="submit"
-    />
-  </form>
-  <h3>
-    List of Transactions
-  </h3>
+  <h1>
+    Transactions
+  </h1>
   <div
-    id="transaction-block"
+    className="emotion-0"
   >
-    <div
-      style={
-        Object {
-          "alignItems": "center",
-          "display": "flex",
-        }
-      }
+    <h2>
+      Enter a Transaction
+    </h2>
+    <form
+      className="form emotion-1"
+      onSubmit={[Function]}
     >
-      <p
-        className="transaction"
-      >
-        Hermoine
-         spent $
-        100
-         at 
-        Flourish and Blotts
-         on 
-        12/20/2020
-      </p>
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root"
-        focusable="false"
-        id="edit"
-        onClick={[Function]}
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+      <label>
+         User:  
+        <input
+          data-testid="user"
+          name="user"
+          onChange={[Function]}
+          type="text"
+          value=""
         />
-      </svg>
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root"
-        focusable="false"
-        id="delete"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "red",
-          }
-        }
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+      </label>
+      <br />
+        
+      <label>
+         Merchant:  
+        <input
+          data-testid="merchant"
+          name="merchant"
+          onChange={[Function]}
+          type="text"
+          value=""
         />
-      </svg>
-    </div>
+      </label>
+      <br />
+      <label>
+         Amount:  $
+        <input
+          className="amount"
+          data-testid="amount"
+          name="amount"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </label>
+      <br />
+        
+      <label>
+         Date:  
+        <input
+          data-testid="date"
+          name="date"
+          onChange={[Function]}
+          placeholder="MM/DD/YYYY"
+          type="text"
+          value=""
+        />
+      </label>
+      <br />
+      <br />
+      <input
+        className="submit"
+        data-testid="submit"
+        type="submit"
+      />
+    </form>
   </div>
   <div
-    id="transaction-block"
+    className="emotion-0"
   >
-    <div
-      style={
-        Object {
-          "alignItems": "center",
-          "display": "flex",
-        }
-      }
+    <h2
+      className="emotion-3"
     >
-      <p
-        className="transaction"
+      List of Transactions
+    </h2>
+    <div
+      className="emotion-4"
+      id="transaction-block"
+    >
+      <div
+        className="emotion-5"
       >
-        Harry
-         spent $
-        5
-         at 
-        Ollivander's Wand Shop
-         on 
-        01/05/2021
-      </p>
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root"
-        focusable="false"
-        id="edit"
-        onClick={[Function]}
-        viewBox="0 0 24 24"
+        <p
+          className="transaction"
+        >
+          Hermoine
+           spent $
+          100
+           at 
+          Flourish and Blotts
+           on 
+          12/20/2020
+        </p>
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root emotion-6"
+          focusable="false"
+          id="edit"
+          onClick={[Function]}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+          />
+        </svg>
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root emotion-7"
+          focusable="false"
+          id="delete"
+          onClick={[Function]}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      className="emotion-4"
+      id="transaction-block"
+    >
+      <div
+        className="emotion-5"
       >
-        <path
-          d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
-        />
-      </svg>
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root"
-        focusable="false"
-        id="delete"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "red",
-          }
-        }
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-        />
-      </svg>
+        <p
+          className="transaction"
+        >
+          Harry
+           spent $
+          5
+           at 
+          Ollivander's Wand Shop
+           on 
+          01/05/2021
+        </p>
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root emotion-6"
+          focusable="false"
+          id="edit"
+          onClick={[Function]}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+          />
+        </svg>
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root emotion-7"
+          focusable="false"
+          id="delete"
+          onClick={[Function]}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </div>
     </div>
   </div>
 </div>

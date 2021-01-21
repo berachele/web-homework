@@ -1,25 +1,35 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import { Transactions } from '../src/transactions';
+//for mock data and useState for test props
+import { renderHook } from '@testing-library/react-hooks'
+import useMockTransactions from './useMockTransactions'
 
 describe('Transactions page test suite', () => {
+  
   it('renders "List of Transactions" message', () => {
-    const { getByText } = render(<Transactions />)
+    const { result } = renderHook(() => useMockTransactions())
+    
+    const { getByText } = render(<Transactions transactions={result.current.mockTransactions} setTransactions={result.current.setMockTransactions}/>)
     const listTitle = getByText('List of Transactions')
     
     expect(listTitle).toBeInTheDocument()
   })
-
-  // this will also watch Form because Form is imported in Transactions
+  
+  // // this will also watch Form because Form is imported in Transactions
   it('matches Transaction component snapshot', () => {
-    const tree = renderer.create(<Transactions />).toJSON()
-
+    const { result } = renderHook(() => useMockTransactions())
+    
+    const tree = renderer.create(<Transactions transactions={result.current.mockTransactions} setTransactions={result.current.setMockTransactions}/>).toJSON()
     expect(tree).toMatchSnapshot()
   })
+  
 
   it('Testing if inputs on form are visible on add form', () => {
-    const { getByLabelText } = render(<Transactions />)
+    const { result } = renderHook(() => useMockTransactions())
+
+    const { getByLabelText } = render(<Transactions transactions={result.current.mockTransactions} setTransactions={result.current.setMockTransactions}/>)
 
     const userInput = getByLabelText(/User/i)
     const merchantInput = getByLabelText(/Merchant/i)
@@ -33,7 +43,9 @@ describe('Transactions page test suite', () => {
   })
 
   it('Form to enter and add transaction successfully works', async() => {
-    const { getByTestId } = render(<Transactions />)
+    const { result } = renderHook(() => useMockTransactions())
+
+    const { getByTestId } = render(<Transactions transactions={result.current.mockTransactions} setTransactions={result.current.setMockTransactions}/>)
     //entering values
     const userInput = getByTestId(/user/i)
     const merchantInput = getByTestId(/merchant/i)
@@ -57,62 +69,11 @@ describe('Transactions page test suite', () => {
     const amountValue = await amountInput.value
     const dateValue = await dateInput.value
 
+
     expect(userValue).toBe('')
     expect(merchantValue).toBe('')
     expect(amountValue).toBe('')
     expect(dateValue).toBe('')
   })
-
-  it('Clicking Edit Icon successfully opens up edit form', async() => {
-    render(<Transactions />)
-    const editBtnNodeList = document.querySelectorAll('#edit')
-    const firstTransaction = editBtnNodeList[0]
-    const formsList = document.querySelectorAll('.form')
-    const formListLength = formsList.length
-
-    expect(formListLength).toBe(1)
-
-    fireEvent.click(firstTransaction)
-
-    const newFormsList = await document.querySelectorAll('.form')
-
-    expect(newFormsList.length).toBe(2)
-  })
-
-  it('Form to edit transaction successfully works', async() => {
-    const { getByDisplayValue } = render(<Transactions />)
-    //editing values
-    const amountInput = getByDisplayValue('100')
-
-    fireEvent.change(amountInput, { target: { value: '45' } })
-    
-    const amountValue = await amountInput.value
-
-    expect(amountValue).toBe('45')
-    
-    //submission
-    const submitButtons = document.querySelectorAll('.submit')
-    const mySubmitButton = submitButtons[1]
-
-    fireEvent.click(mySubmitButton)
-
-    const updatedTransaction = await document.querySelector('.transaction').textContent
-
-    expect(updatedTransaction).toBe('Hermoine spent $45 at Flourish and Blotts on 12/20/2020')
-  })
+  
 })
-
-  it('Clicking Delete Icon successfully deletes that transaction', async() => {
-    render(<Transactions />)
-    const deleteBtnNodeList = document.querySelectorAll('#delete')
-    const nodeListLength = deleteBtnNodeList.length
-    const firstTransaction = deleteBtnNodeList[0]
-
-    expect(nodeListLength).toBe(2)
-
-    fireEvent.click(firstTransaction)
-
-    const newNodeListLength = await document.querySelectorAll('.transaction').length
-    
-    expect(newNodeListLength).toBe(1)
-  })

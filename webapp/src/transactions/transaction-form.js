@@ -3,7 +3,7 @@ import { formStyles } from '../styles/transaction-form'
 
 function Form(props){
     const [formValues, setFormValues] = useState(props.formValues)
-
+    
     const handleChange = event => {
         setFormValues({
           ...formValues,
@@ -17,8 +17,9 @@ function Form(props){
 
         props.onSubmit(formValues.id, formValues.user, formValues.merchant, formValues.amount, formValues.date, formValues.isOpen)
         //clearing form after submission
-        setFormValues(props.initialFormValues)
+        setFormValues(props.formValues)
     }
+
 
     return (
       <form onSubmit={onSubmit} className='form' css={formStyles}>
