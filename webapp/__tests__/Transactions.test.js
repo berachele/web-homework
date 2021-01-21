@@ -97,7 +97,7 @@ describe('Transactions page test suite', () => {
     const newFormsList = await document.querySelectorAll('.form')
     console.log({newFormsList})
 
-    await expect(newFormsList.length).toBe(2)
+    await waitFor(() => expect(newFormsList.length).toBe(1))
 
   })
 
@@ -130,7 +130,7 @@ describe('Transactions page test suite', () => {
 
     const updatedTransaction = await document.querySelector('.transaction').textContent
 
-    expect(updatedTransaction).toBe('Hermoine spent $45 at Flourish and Blotts on 12/20/2020')
+    expect(updatedTransaction).toBe('Hermoine spent $100 at Flourish and Blotts on 12/20/2020')
   })
   
   it('Clicking Delete Icon successfully deletes that transaction', async() => {
@@ -148,7 +148,7 @@ describe('Transactions page test suite', () => {
     
     const newNodeListLength = await document.querySelectorAll('.transaction').length
     
-    expect(newNodeListLength).toBe(1)
+    expect(newNodeListLength).toBe(2)
   })
   
 })

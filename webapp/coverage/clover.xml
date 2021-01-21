@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1611261078384" clover="3.2.0">
-  <project timestamp="1611261078384" name="All files">
-    <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4" elements="17" coveredelements="17" complexity="0" loc="13" ncloc="13" packages="2" files="2" classes="2"/>
-    <package name="__tests__">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="useMockTransactions.js" path="/Users/berachele/Desktop/web-homework/webapp/__tests__/useMockTransactions.js">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="36" count="11" type="stmt"/>
-        <line num="37" count="11" type="stmt"/>
-        <line num="39" count="11" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.transactions">
-      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <file name="transaction-form.js" path="/Users/berachele/Desktop/web-homework/webapp/src/transactions/transaction-form.js">
-        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="5" count="16" type="stmt"/>
-        <line num="7" count="16" type="stmt"/>
-        <line num="8" count="5" type="stmt"/>
-        <line num="14" count="16" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="24" count="16" type="stmt"/>
-      </file>
-    </package>
+<coverage generated="1611262261172" clover="3.2.0">
+  <project timestamp="1611262261172" name="All files">
+    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
   </project>
 </coverage>
