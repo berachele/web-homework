@@ -12,7 +12,8 @@ Please **fork** this repo to your GitHub account.
   * Added a user experience that showcases my abilities on the front end such as better navigation and improved styling using `emotion-js`.
   
 ## Project Setup
-
+install dependencies in root folder
+cd into `/webapp` file, and install dependencies
 **Node** version **11.15.0** is the version required for yarn start to successfully compile localhost. To change Node version, install **Node Version Manager** (`nvm`) by running these commands:
  * `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash`
  * `export NVM_DIR="$HOME/.nvm"` `[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"`
@@ -20,7 +21,7 @@ Please **fork** this repo to your GitHub account.
  
 Review [nvm docs](https://github.com/nvm-sh/nvm/blob/master/README.md) for more detail.
 
-Once Node **11.15.0** is setup, cd into `/webapp` file and `yarn start` to run localhost. <br/>
+Once Node **11.15.0** is setup, run `yarn start` to run localhost. <br/>
 Run `yarn test` to run testing file for transactions.
 
 ## Instructions
