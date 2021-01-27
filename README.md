@@ -13,7 +13,7 @@ Please **fork** this repo to your GitHub account.
   
 ## Project Setup
 Install dependencies in root folder <br/>
-cd into `/webapp` file, and install dependencies <br/>
+cd into `/webapp` file, and install dependencies <br/><br />
 **Node** version **11.15.0** is the version required for yarn start to successfully compile localhost. To change Node version, install **Node Version Manager** (`nvm`) by running these commands:
  * `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash`
  * `export NVM_DIR="$HOME/.nvm"` `[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"`
